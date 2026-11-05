@@ -1,0 +1,8 @@
+# Ultimate Debloat Pack (UDP) - short start command:
+#
+#   irm https://hamiddidnoteat.github.io/udp | iex
+#
+# This one line loads the bootstrap script from the official repository. That script downloads the
+# latest release, checks it against the SHA256SUMS file published with it, and starts UDP.
+# Bootstrap source: https://github.com/HamidDidNotEat/Ultimate-Debloat-Pack/blob/main/Get.ps1
+irm https://raw.githubusercontent.com/HamidDidNotEat/Ultimate-Debloat-Pack/main/Get.ps1 | iex

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://hamiddidnoteat.github.io/sitemap.xml

@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ultimate Debloat Pack - debloat Windows 11 and 10 with official tools</title>
+  <meta name="description" content="One wizard that runs Win11Debloat, O&amp;O ShutUp10++, Bulk Crap Uninstaller, Edge removal, NVCleanstall and Autoruns from their official sources, with verified downloads, a restore point and a single restart.">
+  <link rel="icon" type="image/png" href="assets/logo.png">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Ultimate Debloat Pack">
+  <meta property="og:description" content="One wizard to debloat Windows 11 and 10, using only official tools. Verified downloads, restore point, one restart.">
+  <meta property="og:url" content="https://hamiddidnoteat.github.io/">
+  <meta property="og:image" content="https://hamiddidnoteat.github.io/assets/social-preview.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <style>
+    :root {
+      --bg: #f8fafc; --surface: #ffffff; --text: #111827; --muted: #4b5563; --border: #e5e7eb;
+      --accent: #2563eb; --accent-hover: #1d4ed8; --accent-soft: #eff6ff;
+      --warn-bg: #fef3c7; --warn-border: #f59e0b; --warn-text: #78350f;
+      --code-bg: #111827; --code-text: #e5e7eb;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0b1120; --surface: #111827; --text: #f3f4f6; --muted: #9ca3af; --border: #1f2937;
+        --accent: #3b82f6; --accent-hover: #60a5fa; --accent-soft: #172554;
+        --warn-bg: #3b2a06; --warn-border: #b45309; --warn-text: #fde68a;
+        --code-bg: #030712; --code-text: #e5e7eb;
+      }
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; background: var(--bg); color: var(--text);
+      font-family: "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-size: 16px; line-height: 1.6;
+    }
+    a { color: var(--accent); }
+    .wrap { max-width: 1040px; margin: 0 auto; padding: 0 20px; }
+
+    /* Top bar */
+    .top { position: sticky; top: 0; z-index: 10; background: color-mix(in srgb, var(--bg) 88%, transparent);
+           backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); }
+    .top .wrap { display: flex; align-items: center; justify-content: space-between; height: 60px; }
+    .brand { display: flex; align-items: center; gap: 10px; color: var(--text); text-decoration: none; font-weight: 700; }
+    .brand img { width: 30px; height: 30px; }
+    .top nav a { color: var(--muted); text-decoration: none; margin-left: 22px; font-size: 15px; }
+    .top nav a:hover { color: var(--text); }
+
+    /* Hero */
+    .hero { text-align: center; padding: 64px 0 40px; }
+    .hero .logo { width: 104px; height: 104px; }
+    .hero h1 { font-size: clamp(2rem, 5vw, 3rem); line-height: 1.15; margin: 18px 0 8px; letter-spacing: -0.02em; }
+    .tagline { font-size: 1.2rem; color: var(--muted); margin: 0 auto 30px; max-width: 640px; }
+    .command { display: flex; align-items: stretch; max-width: 680px; margin: 0 auto; border-radius: 10px; overflow: hidden;
+               background: var(--code-bg); border: 1px solid var(--border); box-shadow: 0 8px 24px rgba(0,0,0,.12); }
+    .command code { flex: 1; text-align: left; padding: 16px 18px; color: var(--code-text); font-size: 15px;
+                    font-family: Consolas, "Cascadia Mono", ui-monospace, monospace; overflow-x: auto; white-space: nowrap; }
+    .command code .ps { color: #60a5fa; user-select: none; }
+    .command button { border: 0; background: var(--accent); color: #fff; font: inherit; font-weight: 600; padding: 0 22px; cursor: pointer; min-width: 92px; }
+    .command button:hover { background: var(--accent-hover); }
+    .hint { color: var(--muted); font-size: 14px; margin: 12px 0 26px; }
+    .actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .btn { display: inline-block; padding: 10px 20px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 15px;
+           border: 1px solid var(--border); color: var(--text); background: var(--surface); }
+    .btn:hover { border-color: var(--accent); }
+    .btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+    .btn.primary:hover { background: var(--accent-hover); }
+    .version { color: var(--muted); font-size: 14px; margin-top: 14px; min-height: 1.6em; }
+
+    /* Sections */
+    section { padding: 44px 0; }
+    h2 { font-size: 1.7rem; margin: 0 0 6px; letter-spacing: -0.01em; }
+    .lead { color: var(--muted); margin: 0 0 26px; max-width: 720px; }
+    .warning { background: var(--warn-bg); border: 1px solid var(--warn-border); color: var(--warn-text);
+               border-radius: 10px; padding: 16px 20px; max-width: 820px; margin: 0 auto; }
+    .warning strong { display: block; margin-bottom: 2px; }
+
+    .shots { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .shots figure { margin: 0; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+    .shots img { width: 100%; display: block; }
+    .shots figcaption { padding: 10px 14px; color: var(--muted); font-size: 14px; }
+
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; }
+    .card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; }
+    .card h3 { margin: 0 0 4px; font-size: 1.05rem; }
+    .card p { margin: 0; color: var(--muted); font-size: 15px; }
+    .tag { display: inline-block; font-size: 12px; font-weight: 600; padding: 1px 8px; border-radius: 999px;
+           background: var(--accent-soft); color: var(--accent); margin-left: 6px; vertical-align: 2px; }
+    .tag.off { background: transparent; border: 1px solid var(--border); color: var(--muted); }
+
+    .steps { counter-reset: step; display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .steps .card { position: relative; padding-top: 46px; }
+    .steps .card::before { counter-increment: step; content: counter(step); position: absolute; top: 14px; left: 20px;
+                           width: 24px; height: 24px; border-radius: 50%; background: var(--accent); color: #fff;
+                           font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+
+    .checks { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px 28px; }
+    .checks li { padding-left: 28px; position: relative; }
+    .checks li::before { content: ""; position: absolute; left: 2px; top: 7px; width: 14px; height: 8px;
+                         border-left: 3px solid var(--accent); border-bottom: 3px solid var(--accent); transform: rotate(-45deg); }
+    .checks b { display: block; }
+    .checks span { color: var(--muted); font-size: 15px; }
+
+    pre { background: var(--code-bg); color: var(--code-text); padding: 14px 18px; border-radius: 8px; overflow-x: auto;
+          font-family: Consolas, "Cascadia Mono", ui-monospace, monospace; font-size: 14px; }
+
+    footer { border-top: 1px solid var(--border); padding: 30px 0 40px; color: var(--muted); font-size: 14px; }
+    footer a { color: var(--muted); }
+
+    @media (max-width: 860px) {
+      .shots { grid-template-columns: 1fr; }
+      .steps { grid-template-columns: 1fr 1fr; }
+      .checks { grid-template-columns: 1fr; }
+      .top nav a.optional { display: none; }
+    }
+    @media (max-width: 520px) {
+      .steps { grid-template-columns: 1fr; }
+      .command { flex-direction: column; }
+      .command button { padding: 10px; }
+      .top nav a { margin-left: 14px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="top">
+    <div class="wrap">
+      <a class="brand" href="#"><img src="assets/logo.png" alt="">Ultimate Debloat Pack</a>
+      <nav>
+        <a class="optional" href="#tools">Tools</a>
+        <a class="optional" href="#how">How it works</a>
+        <a class="optional" href="#safety">Safety</a>
+        <a href="https://github.com/HamidDidNotEat/Ultimate-Debloat-Pack">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap">
+        <img class="logo" src="assets/logo.png" alt="Ultimate Debloat Pack logo">
+        <h1>Ultimate Debloat Pack</h1>
+        <p class="tagline">One wizard to debloat Windows 11 and 10, using only official tools. You choose, UDP explains every step and runs everything in the right order.</p>
+
+        <div class="command">
+          <code><span class="ps">PS&gt; </span><span id="cmd">irm https://hamiddidnoteat.github.io/udp | iex</span></code>
+          <button id="copy" type="button" aria-label="Copy the command">Copy</button>
+        </div>
+        <p class="hint">Paste it into <b>PowerShell</b> (Start &rarr; type "PowerShell"). No need to open it as administrator: UDP asks for the rights it needs.</p>
+
+        <div class="actions">
+          <a class="btn primary" href="https://github.com/HamidDidNotEat/Ultimate-Debloat-Pack/releases/latest/download/UDP.zip">Download UDP.zip</a>
+          <a class="btn" href="https://github.com/HamidDidNotEat/Ultimate-Debloat-Pack">View on GitHub</a>
+          <a class="btn" href="https://github.com/HamidDidNotEat/Ultimate-Debloat-Pack/blob/main/docs/README.md">Documentation</a>
+        </div>
+        <p class="version" id="version"></p>
+      </div>
+    </section>
+
+    <div class="wrap">
+      <div class="warning" role="note">
+        <strong>&#9888; Test it in a virtual machine first</strong>
+        UDP changes system settings, removes apps and can remove Microsoft Edge. Some changes cannot be undone by UDP itself. Try it in a virtual machine with a snapshot before your main PC. Use it at your own risk.
+      </div>
+    </div>
+
+    <section id="screens">
+      <div class="wrap">
+        <div class="shots">
+          <figure><img src="assets/welcome.png" alt="UDP welcome page" loading="lazy"><figcaption>Welcome page with the checks of your PC</figcaption></figure>
+          <figure><img src="assets/tool-page.png" alt="UDP browser page" loading="lazy"><figcaption>Every tool explained, every option yours</figcaption></figure>
+          <figure><img src="assets/run.png" alt="UDP run page with a guide" loading="lazy"><figcaption>A short guide before each tool you use</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <section id="tools">
+      <div class="wrap">
+        <h2>What's included</h2>
+        <p class="lead">Seven well-known tools, each downloaded from its official source when UDP runs. Nothing third-party is bundled.</p>
+        <div class="grid">
+          <div class="card"><h3>Win11Debloat <span class="tag">on</span></h3><p>Removes preinstalled Store apps you choose and turns off telemetry, ads, suggestions, Copilot and Recall.</p></div>
+          <div class="card"><h3>O&amp;O ShutUp10++ <span class="tag">on</span></h3><p>Every Windows privacy setting in one list, each with a recommendation.</p></div>
+          <div class="card"><h3>Bulk Crap Uninstaller <span class="tag">on</span></h3><p>Remove the desktop programs you don't want, and their leftovers. UDP never removes anything by itself.</p></div>
+          <div class="card"><h3>Firefox, Chrome or Brave <span class="tag">on</span></h3><p>Installs your browser with optional privacy extensions, pins it to the taskbar and makes it the default.</p></div>
+          <div class="card"><h3>Edge removal <span class="tag off">optional</span></h3><p>Removes Microsoft Edge in any country with AveYo's script, and always keeps WebView2.</p></div>
+          <div class="card"><h3>NVCleanstall <span class="tag off">optional</span></h3><p>A lean NVIDIA driver with only the parts you choose. Offered only with an NVIDIA graphics card.</p></div>
+          <div class="card"><h3>Autoruns <span class="tag">on</span></h3><p>Review everything that still starts with Windows, with a guide on what is safe to switch off.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="how">
+      <div class="wrap">
+        <h2>How it works</h2>
+        <p class="lead">One window, one tool at a time, one restart at the end.</p>
+        <div class="steps">
+          <div class="card"><h3>Check</h3><p>UDP checks your Windows, internet, winget and graphics card, and measures your PC.</p></div>
+          <div class="card"><h3>Choose</h3><p>One page per tool: what it does, what it changes, the risks and how to undo it.</p></div>
+          <div class="card"><h3>Run</h3><p>A restore point first, then each tool in the right order. Silent tools show their output in UDP's log.</p></div>
+          <div class="card"><h3>Restart</h3><p>A single restart. Afterwards, UDP shows what changed: processes, RAM, apps, startup entries.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="safety">
+      <div class="wrap">
+        <h2>Safe by design</h2>
+        <p class="lead">UDP runs with administrator rights, so it is built to be checked.</p>
+        <ul class="checks">
+          <li><b>Official sources only</b><span>Every download address is listed in one file, <code>config/tools.json</code>.</span></li>
+          <li><b>Verified before it runs</b><span>Digital signatures from the expected publisher, or published SHA256 checksums.</span></li>
+          <li><b>Restore point first</b><span>Everything UDP changes can be rolled back with Windows System Restore.</span></li>
+          <li><b>Dry run</b><span>See exactly what would happen, without changing anything.</span></li>
+          <li><b>Easy to undo</b><span>An undo guide for every tool, and one click to remove the browser policies UDP set.</span></li>
+          <li><b>Open source</b><span>Readable PowerShell, no obfuscation, tested on every change. MIT license.</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="other">
+      <div class="wrap">
+        <h2>Other ways to start</h2>
+        <p class="lead">The short command above loads <a href="https://github.com/HamidDidNotEat/Ultimate-Debloat-Pack/blob/main/Get.ps1">Get.ps1</a> from the official repository. It downloads the latest release, checks it against its published SHA256 checksum and starts UDP. You can also:</p>
+        <div class="grid">
+          <div class="card"><h3>Download and double-click</h3><p>Download <a href="https://github.com/HamidDidNotEat/Ultimate-Debloat-Pack/releases/latest/download/UDP.zip">UDP.zip</a>, extract it and double-click <code>Run-UDP.bat</code>.</p></div>
+          <div class="card"><h3>Straight from GitHub</h3><p>The same bootstrap, without this website:</p><pre>irm https://raw.githubusercontent.com/HamidDidNotEat/Ultimate-Debloat-Pack/main/Get.ps1 | iex</pre></div>
+        </div>
+        <p class="lead" style="margin-top:22px">Requires Windows 11 (Windows 10 for the tools that support it), Windows PowerShell 5.1 (built in) and an internet connection.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p>Ultimate Debloat Pack is open source under the <a href="https://github.com/HamidDidNotEat/Ultimate-Debloat-Pack/blob/main/LICENSE">MIT license</a>. It only orchestrates other people's tools: all credit goes to their authors, and each tool keeps its own license (<a href="https://github.com/HamidDidNotEat/Ultimate-Debloat-Pack#credits">credits</a>).
+      Not affiliated with Microsoft or with the authors of the tools.</p>
+      <p><a href="https://github.com/HamidDidNotEat/Ultimate-Debloat-Pack/releases">Releases</a> &middot;
+         <a href="https://github.com/HamidDidNotEat/Ultimate-Debloat-Pack/blob/main/CHANGELOG.md">Changelog</a> &middot;
+         <a href="https://github.com/HamidDidNotEat/Ultimate-Debloat-Pack/issues">Report a problem</a> &middot;
+         <a href="https://github.com/HamidDidNotEat/Ultimate-Debloat-Pack/blob/main/SECURITY.md">Security</a></p>
+    </div>
+  </footer>
+
+  <script>
+    // Copy button.
+    document.getElementById('copy').addEventListener('click', function () {
+      var button = this;
+      var text = document.getElementById('cmd').textContent;
+      var done = function () { button.textContent = 'Copied!'; setTimeout(function () { button.textContent = 'Copy'; }, 1800); };
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(done, function () { window.prompt('Copy the command:', text); });
+      } else {
+        window.prompt('Copy the command:', text);
+      }
+    });
+
+    // Latest release number, from GitHub. The page works the same without it.
+    fetch('https://api.github.com/repos/HamidDidNotEat/Ultimate-Debloat-Pack/releases/latest')
+      .then(function (response) { return response.ok ? response.json() : null; })
+      .then(function (release) {
+        if (!release || !release.tag_name) { return; }
+        var date = new Date(release.published_at).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+        document.getElementById('version').innerHTML = 'Latest release: <a href="' + release.html_url + '">' + release.tag_name + '</a> (' + date + ')';
+      })
+      .catch(function () { });
+  </script>
+</body>
+</html>
