@@ -4,7 +4,7 @@ Website of **[Ultimate Debloat Pack (UDP)](https://github.com/HamidDidNotEat/Ult
 
 | File | Purpose |
 |------|---------|
-| `index.html` | The home page |
+| `index.html` | The home page. Keep its `google-site-verification` tag: it proves ownership of the site in Google Search Console. |
 | `udp` | The short start command `irm https://hamiddidnoteat.github.io/udp \| iex`. It loads [`Get.ps1`](https://github.com/HamidDidNotEat/Ultimate-Debloat-Pack/blob/main/Get.ps1) from the official repository, which downloads the latest release, checks its SHA256 and starts UDP. |
 | `assets/` | Logo and screenshots |
 | `sitemap.xml`, `robots.txt` | Help search engines find the site |
