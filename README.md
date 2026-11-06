@@ -8,6 +8,7 @@ Website of **[Ultimate Debloat Pack (UDP)](https://github.com/HamidDidNotEat/Ult
 | `udp` | The short start command `irm https://hamiddidnoteat.github.io/udp \| iex`. It loads [`Get.ps1`](https://github.com/HamidDidNotEat/Ultimate-Debloat-Pack/blob/main/Get.ps1) from the official repository, which downloads the latest release, checks its SHA256 and starts UDP. |
 | `assets/` | Logo and screenshots |
 | `sitemap.xml`, `robots.txt` | Help search engines find the site |
+| `<32 hex characters>.txt` | IndexNow key: proves the site is ours when it tells Bing (and other IndexNow search engines) about new or changed pages. Keep it. |
 | `404.html` | Page shown for unknown addresses |
 | `.nojekyll` | Tells GitHub Pages to serve the files as they are |
 
